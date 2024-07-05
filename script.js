@@ -17,7 +17,7 @@ domReady(function () {
 	function onScanSuccess(decodeText, decodeResult) {
 
 		//alert("Employee Info : \n" + decodeText, decodeResult);
-		alert("Attendance Successfully"+decodeResult);
+		alert("Attendance Successfully "+ decodeText);
 	}
 
 	let htmlscanner = new Html5QrcodeScanner(
