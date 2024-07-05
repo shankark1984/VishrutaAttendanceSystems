@@ -1,0 +1,50 @@
+<!-- Index.html file -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>QR Code Scanner / Reader
+    </title>
+</head>
+
+<body onload="getLocation()">
+    <div class="container">
+        <h1>Scan QR Codes</h1>
+        <div class="section">
+            <div id="my-qr-reader">
+            </div>
+        </div>
+       
+            <p>EmpName</p>
+        <p id="demo"></p>
+
+    </div>
+
+
+    <script>
+        const x = document.getElementById("demo");
+
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.watchPosition(showPosition);
+            } else {
+                x.innerHTML = "Geolocation is not supported by this browser.";
+            }
+        }
+
+        function showPosition(position) {
+            x.innerHTML = "Latitude: " + position.coords.latitude +
+                " Longitude: " + position.coords.longitude;
+        }
+    </script>
+
+    <script src="html5-qrcode.min.js">
+    </script>
+    <script src="script.js"></script>
+    <script data-cfasync="false" src="js/form-submission-handler.js"></script>
+</body>
+
+</html>
