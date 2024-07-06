@@ -36,6 +36,8 @@ domReady(function () {
 		//document.getElementById("Info1").textContent = decodeText, decodeResult;
 		document.getElementById("Info1").textContent = infoSplitA;
 		document.getElementById("Info2").textContent = infoSplitB;
+		document.getElementById("siteID").textContent = siteID;
+		document.getElementById("workOrderNo").textContent = workOrderNo;
 
 
 
