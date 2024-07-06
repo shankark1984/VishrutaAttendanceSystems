@@ -18,7 +18,7 @@ domReady(function () {
 
 		alert("Attendance Successfully : \n" + decodeText, decodeResult);
 
-		document.getElementById("myHeading").innerHTML=decodeText, decodeResult;
+		document.getElementById("Info").innerHTML=decodeText, decodeResult;
 	}
 
 	let htmlscanner = new Html5QrcodeScanner(
