@@ -59,13 +59,11 @@ function getLocation() {
 }
 
 function showPosition(position) {
+	document.getElementById("srtLatitude").textContent = position.coords.latitude;
+	document.getElementById("srtLongitude").textContent = position.coords.longitude;
 
 	x.innerHTML = "Latitude: " + position.coords.latitude +
 		" Longitude: " + position.coords.longitude;
-
-
-	document.getElementById("srtLatitude").textContent = position.coords.latitude;
-	document.getElementById("srtLongitude").textContent = position.coords.longitude;
 }
 
 </script>
