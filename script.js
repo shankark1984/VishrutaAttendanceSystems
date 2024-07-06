@@ -1,4 +1,8 @@
 // script.js file
+var infoSplitA;
+var infoSplitB;
+var siteID;
+var workOrderNo;
 
 function domReady(fn) {
 	if (
@@ -19,8 +23,14 @@ domReady(function () {
 		//alert("Attendance Successfully: \n" + decodeText, decodeResult);
 		var mystring = decodeText, decodeResult;
 		var splits = mystring.split(",");
-		var infoSplitA = splits[0];
-		var infoSplitB = splits[1];
+		if (splits[0] = "Site") {
+			siteID = splits[1];
+			workOrderNo = splits[2];
+		} else {
+			infoSplitA = splits[0];
+			infoSplitB = splits[1];
+		}
+
 		//alert(splits[0]); // output: this
 
 		//document.getElementById("Info1").textContent = decodeText, decodeResult;
