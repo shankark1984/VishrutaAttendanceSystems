@@ -26,7 +26,8 @@ domReady(function () {
 		//document.getElementById("Info1").textContent = decodeText, decodeResult;
 		document.getElementById("Info1").textContent = infoSplitA;
 		document.getElementById("Info2").textContent = infoSplitB;
-
+		document.getElementById("srtLatitude").textContent=position.coords.latitude;
+		document.getElementById("srtLongitude").textContent=position.coords.longitude;
 		//const x = document.getElementById("demo");
 
         function getLocation() {
@@ -38,9 +39,6 @@ domReady(function () {
         }
 
         function showPosition(position) {
-
-            document.getElementById("srtLatitude").textContent=position.coords.latitude;
-            document.getElementById("srtLongitude").textContent=position.coords.longitude;
 
             x.innerHTML = "Latitude: " + position.coords.latitude +
                 " Longitude: " + position.coords.longitude;
