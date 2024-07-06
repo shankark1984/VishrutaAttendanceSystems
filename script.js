@@ -32,17 +32,18 @@ domReady(function () {
 			siteID = splits[1];
 			workOrderNo = splits[2];
 			alert("Site");
-		} else {
-			infoSplitA = splits[0];
-			infoSplitB = splits[1];
+		} 
+		if(splits[0] == "Emp") {
+			infoSplitA = splits[1];
+			infoSplitB = splits[2];
 			alert("Emp");
 		}
 
 		//alert(splits[0]); // output: this
 
 		//document.getElementById("Info1").textContent = decodeText, decodeResult;
-		document.getElementById("Info1").textContent = infoSplitA;
-		document.getElementById("Info2").textContent = infoSplitB;
+		document.getElementById("empID").textContent = infoSplitA;
+		document.getElementById("empName").textContent = infoSplitB;
 		document.getElementById("siteID").textContent = siteID;
 		document.getElementById("workOrderNo").textContent = workOrderNo;
 
