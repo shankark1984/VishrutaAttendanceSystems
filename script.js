@@ -24,9 +24,11 @@ domReady(function () {
 		var mystring = decodeText, decodeResult;
 		var splits = mystring.split(",");
 
-		if(infoSplitA==isnull){
-			alert("First scan employee card");
-		}else if (splits[0] == "Site") {
+		 if (splits[0] == "Site") {
+			if(infoSplitA==null){
+				alert("First scan employee card");
+				return;
+			}
 			siteID = splits[1];
 			workOrderNo = splits[2];
 			alert("Site");
