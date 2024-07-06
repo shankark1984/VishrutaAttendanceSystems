@@ -26,8 +26,6 @@ domReady(function () {
 		//document.getElementById("Info1").textContent = decodeText, decodeResult;
 		document.getElementById("Info1").textContent = infoSplitA;
 		document.getElementById("Info2").textContent = infoSplitB;
-		document.getElementById("srtLatitude").textContent=position.coords.latitude;
-		document.getElementById("srtLongitude").textContent=position.coords.longitude;
 	}
 
 	let htmlscanner = new Html5QrcodeScanner(
@@ -35,38 +33,23 @@ domReady(function () {
 		{ fps: 10, qrbos: 250 }
 	);
 	htmlscanner.render(onScanSuccess);
-
-	function getLocation() {
-		if (navigator.geolocation) {
-			navigator.geolocation.watchPosition(showPosition);
-		} else {
-			x.innerHTML = "Geolocation is not supported by this browser.";
-		}
-	}
-
-	function showPosition(position) {
-
-
-
-		x.innerHTML = "Latitude: " + position.coords.latitude +
-			" Longitude: " + position.coords.longitude;
-	}
 });
 
-// const x = document.getElementById("demo");
+const x = document.getElementById("demo");
 
-//         function getLocation() {
-//             if (navigator.geolocation) {
-//                 navigator.geolocation.watchPosition(showPosition);
-//             } else {
-//                 x.innerHTML = "Geolocation is not supported by this browser.";
-//             }
-//         }
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.watchPosition(showPosition);
+            } else {
+                x.innerHTML = "Geolocation is not supported by this browser.";
+            }
+        }
 
-//         function showPosition(position) {
+        function showPosition(position) {
 
+            document.getElementById("srtLatitude").textContent=position.coords.latitude;
+            document.getElementById("srtLongitude").textContent=position.coords.longitude;
 
-
-//             x.innerHTML = "Latitude: " + position.coords.latitude +
-//                 " Longitude: " + position.coords.longitude;
-//         }
+            x.innerHTML = "Latitude: " + position.coords.latitude +
+                " Longitude: " + position.coords.longitude;
+        }
