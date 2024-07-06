@@ -31,12 +31,12 @@ domReady(function () {
 			}
 			siteID = splits[1];
 			workOrderNo = splits[2];
-			alert("Site");
+			//alert("Site");
 		} 
 		if(splits[0] == "Emp") {
 			infoSplitA = splits[1];
 			infoSplitB = splits[2];
-			alert("Emp");
+			//alert("Emp");
 		}
 
 		//alert(splits[0]); // output: this
