@@ -16,7 +16,7 @@ domReady(function () {
 	// If found you qr code
 	function onScanSuccess(decodeText, decodeResult) {
 
-		//alert("Attendance Successfully : \n" + decodeText, decodeResult);
+		//alert("Attendance Successfully: \n" + decodeText, decodeResult);
 
 		document.getElementById("Info").textContent =decodeText, decodeResult;
 	}
