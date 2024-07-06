@@ -27,8 +27,7 @@ domReady(function () {
 		document.getElementById("Info1").textContent = infoSplitA;
 		document.getElementById("Info2").textContent = infoSplitB;
 		//const x = document.getElementById("demo");
-		const x =document.getElementById("srtLatitude");
-		const y =document.getElementById("srtLongitude");
+
 
 
 	}
@@ -40,7 +39,8 @@ domReady(function () {
 	htmlscanner.render(onScanSuccess);
 });
 
-
+const x =document.getElementById("srtLatitude");
+const y =document.getElementById("srtLongitude");
 
 function getLocation() {
 	if (navigator.geolocation) {
