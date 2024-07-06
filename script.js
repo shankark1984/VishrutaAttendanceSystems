@@ -21,7 +21,7 @@ domReady(function () {
 		var splits = mystring.split(",");
 		var infoSplitA= splits[0];
 		var infoSplitB= splits[1];
-		alert(splits[0]); // output: this
+		//alert(splits[0]); // output: this
 
 		//document.getElementById("Info1").textContent = decodeText, decodeResult;
 		document.getElementById("Info1").textContent = infoSplitA;
