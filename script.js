@@ -17,8 +17,12 @@ domReady(function () {
 	function onScanSuccess(decodeText, decodeResult) {
 
 		//alert("Attendance Successfully: \n" + decodeText, decodeResult);
+		var mystring = decodeText, decodeResult;
+		var splits = mystring.split("-");
+		//alert(splits[0]); // output: this
 
-		document.getElementById("Info").textContent =decodeText, decodeResult;
+		//document.getElementById("Info1").textContent = decodeText, decodeResult;
+		document.getElementById("Info1").textContent = splits[0];
 	}
 
 	let htmlscanner = new Html5QrcodeScanner(
