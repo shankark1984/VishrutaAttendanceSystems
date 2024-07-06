@@ -26,7 +26,7 @@ domReady(function () {
 		//document.getElementById("Info1").textContent = decodeText, decodeResult;
 		document.getElementById("Info1").textContent = infoSplitA;
 		document.getElementById("Info2").textContent = infoSplitB;
-		const x = document.getElementById("demo");
+		//const x = document.getElementById("demo");
 	}
 
 	let htmlscanner = new Html5QrcodeScanner(
