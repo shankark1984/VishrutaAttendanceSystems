@@ -18,8 +18,8 @@ domReady(function () {
 
 		//alert("Attendance Successfully: \n" + decodeText, decodeResult);
 		var mystring = decodeText, decodeResult;
-		var splits = mystring.split("-");
-		//alert(splits[0]); // output: this
+		var splits = mystring.split(",");
+		alert(splits[0]); // output: this
 
 		//document.getElementById("Info1").textContent = decodeText, decodeResult;
 		document.getElementById("Info1").textContent = splits[0];
