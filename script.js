@@ -23,6 +23,7 @@ domReady(function () {
 
 		//document.getElementById("Info1").textContent = decodeText, decodeResult;
 		document.getElementById("Info1").textContent = splits[0];
+		document.getElementById("Info2").textContent = splits[1];
 	}
 
 	let htmlscanner = new Html5QrcodeScanner(
