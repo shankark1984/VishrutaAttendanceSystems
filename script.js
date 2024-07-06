@@ -23,7 +23,8 @@ domReady(function () {
 		//alert("Attendance Successfully: \n" + decodeText, decodeResult);
 		var mystring = decodeText, decodeResult;
 		var splits = mystring.split(",");
-		if (splits[0] = "Site") {
+
+		if (splits[0] === "Site") {
 			siteID = splits[1];
 			workOrderNo = splits[2];
 			alert("Site");
