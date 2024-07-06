@@ -3,6 +3,7 @@ var infoSplitA=null;
 var infoSplitB=null;
 var siteID=null;
 var workOrderNo=null;
+var currentdatetime=null;
 
 function domReady(fn) {
 	if (
@@ -38,7 +39,7 @@ domReady(function () {
 			infoSplitB = splits[2];
 			//alert("Emp");
 		}
-
+		currentdatetime=new Date().toLocaleString();
 		//alert(splits[0]); // output: this
 
 		//document.getElementById("Info1").textContent = decodeText, decodeResult;
@@ -46,6 +47,7 @@ domReady(function () {
 		document.getElementById("empName").textContent = infoSplitB;
 		document.getElementById("siteID").textContent = siteID;
 		document.getElementById("workOrderNo").textContent = workOrderNo;
+		document.getElementById("datetime").textContent = currentdatetime;
 
 	}
 
