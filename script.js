@@ -26,6 +26,8 @@ domReady(function () {
 		//document.getElementById("Info1").textContent = decodeText, decodeResult;
 		document.getElementById("Info1").textContent = infoSplitA;
 		document.getElementById("Info2").textContent = infoSplitB;
+		document.getElementById("srtLatitude").textContent=position.coords.latitude;
+		document.getElementById("srtLongitude").textContent=position.coords.longitude;
 	}
 
 	let htmlscanner = new Html5QrcodeScanner(
@@ -34,3 +36,21 @@ domReady(function () {
 	);
 	htmlscanner.render(onScanSuccess);
 });
+
+const x = document.getElementById("demo");
+
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.watchPosition(showPosition);
+            } else {
+                x.innerHTML = "Geolocation is not supported by this browser.";
+            }
+        }
+
+        function showPosition(position) {
+
+
+
+            x.innerHTML = "Latitude: " + position.coords.latitude +
+                " Longitude: " + position.coords.longitude;
+        }
