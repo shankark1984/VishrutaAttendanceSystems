@@ -70,3 +70,7 @@ video {
 	border: 1px solid #b2b2b2 !important;
 	border-radius: 0.25em;
 }
+.logo{
+	padding: 5px;
+	border: 2px solid white
+}
