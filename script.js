@@ -24,7 +24,9 @@ domReady(function () {
 		var mystring = decodeText, decodeResult;
 		var splits = mystring.split(",");
 
-		if (splits[0] == "Site") {
+		if(infoSplitA==null){
+			alert("First scan employee card");
+		}else if (splits[0] == "Site") {
 			siteID = splits[1];
 			workOrderNo = splits[2];
 			alert("Site");
@@ -41,9 +43,6 @@ domReady(function () {
 		document.getElementById("Info2").textContent = infoSplitB;
 		document.getElementById("siteID").textContent = siteID;
 		document.getElementById("workOrderNo").textContent = workOrderNo;
-
-
-
 
 	}
 
