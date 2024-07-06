@@ -26,9 +26,11 @@ domReady(function () {
 		if (splits[0] = "Site") {
 			siteID = splits[1];
 			workOrderNo = splits[2];
+			alert("Site");
 		} else {
 			infoSplitA = splits[0];
 			infoSplitB = splits[1];
+			alert("Emp");
 		}
 
 		//alert(splits[0]); // output: this
