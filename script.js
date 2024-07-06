@@ -19,11 +19,13 @@ domReady(function () {
 		//alert("Attendance Successfully: \n" + decodeText, decodeResult);
 		var mystring = decodeText, decodeResult;
 		var splits = mystring.split(",");
+		var infoSplitA= splits[0];
+		var infoSplitB= splits[1];
 		alert(splits[0]); // output: this
 
 		//document.getElementById("Info1").textContent = decodeText, decodeResult;
-		document.getElementById("Info1").textContent = splits[0];
-		document.getElementById("Info2").textContent = splits[1];
+		document.getElementById("Info1").textContent = infoSplitA;
+		document.getElementById("Info2").textContent = infoSplitB;
 	}
 
 	let htmlscanner = new Html5QrcodeScanner(
