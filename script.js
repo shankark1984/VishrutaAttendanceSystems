@@ -28,8 +28,7 @@ domReady(function () {
 		document.getElementById("Info2").textContent = infoSplitB;
 		//const x = document.getElementById("demo");
 
-		document.getElementById("srtLatitude").textContent = position.coords.latitude;
-		document.getElementById("srtLongitude").textContent = position.coords.longitude;
+
 	}
 
 	let htmlscanner = new Html5QrcodeScanner(
@@ -54,4 +53,7 @@ function showPosition(position) {
 
 	x.innerHTML = "Latitude: " + position.coords.latitude +
 		" Longitude: " + position.coords.longitude;
+		
+		document.getElementById("srtLatitude").textContent = position.coords.latitude;
+		document.getElementById("srtLongitude").textContent = position.coords.longitude;
 }
