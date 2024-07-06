@@ -1,8 +1,8 @@
 // script.js file
-var infoSplitA;
-var infoSplitB;
-var siteID;
-var workOrderNo;
+var infoSplitA=null;
+var infoSplitB=null;
+var siteID=null;
+var workOrderNo=null;
 
 function domReady(fn) {
 	if (
@@ -24,7 +24,7 @@ domReady(function () {
 		var mystring = decodeText, decodeResult;
 		var splits = mystring.split(",");
 
-		if(infoSplitA==null){
+		if(infoSplitA==isnull){
 			alert("First scan employee card");
 		}else if (splits[0] == "Site") {
 			siteID = splits[1];
