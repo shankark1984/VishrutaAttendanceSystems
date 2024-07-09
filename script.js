@@ -50,7 +50,7 @@ domReady(function () {
 			infoSplitA = splits[1];
 			infoSplitB = splits[2];
 			//alert("Emp");
-		// }
+		 }
 		currentdatetime = new Date().toLocaleString();
 
 		//document.getElementById("Info1").textContent = decodeText, decodeResult;
@@ -59,9 +59,6 @@ domReady(function () {
 		document.getElementById("siteID").textContent = siteID;
 		document.getElementById("workOrderNo").textContent = workOrderNo;
 		document.getElementById("datetime").textContent = currentdatetime;
-
-
-
 	}
 
 	let htmlscanner = new Html5QrcodeScanner(
