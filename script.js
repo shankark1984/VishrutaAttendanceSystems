@@ -37,8 +37,8 @@ domReady(function () {
 		}
 		if (splits[0] == "Emp") {
 			if(splits[1]=!matchEmpID){
-				alert("no Emp list");
-				return;
+				// alert("no Emp list");
+				// return;
 			}
 			infoSplitA = splits[1];
 			infoSplitB = splits[2];
@@ -63,12 +63,3 @@ domReady(function () {
 });
 
 const url="https://script.google.com/macros/s/AKfycbwi_6l12-lguoqpNpHdBnHdNKQ5FRqKTFQQcZB8MX6LtG0kDDbquuzxM18zFNQw5Pyk/exec"
-document.getElementById('form').action=url;
-
-fetch('${url}?header=EmployeeCode')
-.then((response)=>response.json())
-.then(({data})=>{
-	document.getElementById(matchEmpID).innerHTML = console.log(data);
-	//document.getElementById(id).innerHTML = matchEmpID;
-	//const matchEmpID=data;
-})
