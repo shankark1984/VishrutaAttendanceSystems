@@ -35,15 +35,15 @@ domReady(function () {
 			workOrderNo = splits[2];
 			//alert("Site");
 		}
-		if (splits[0] == "Emp") {
-			if(splits[1]=!matchEmpID){
-				// alert("no Emp list");;
-				// return;
-			}
+		// if (splits[0] == "Emp") {
+		// 	if(splits[1]=!matchEmpID){
+		// 		// alert("no Emp list");;
+		// 		// return;
+		// 	}
 			infoSplitA = splits[1];
 			infoSplitB = splits[2];
 			//alert("Emp");
-		}
+		// }
 		currentdatetime = new Date().toLocaleString();
 
 		//document.getElementById("Info1").textContent = decodeText, decodeResult;
@@ -52,6 +52,8 @@ domReady(function () {
 		document.getElementById("siteID").textContent = siteID;
 		document.getElementById("workOrderNo").textContent = workOrderNo;
 		document.getElementById("datetime").textContent = currentdatetime;
+
+
 
 	}
 
