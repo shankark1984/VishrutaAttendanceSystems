@@ -37,7 +37,7 @@ domReady(function () {
 		}
 		if (splits[0] == "Emp") {
 			if(splits[1]=!matchEmpID){
-				// alert("no Emp list");
+				// alert("no Emp list");;
 				// return;
 			}
 			infoSplitA = splits[1];
