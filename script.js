@@ -1,3 +1,6 @@
+const client=require('./app.js');
+console.log(client.name);
+
 // script.js file
 var infoSplitA = null;
 var infoSplitB = null;
@@ -35,11 +38,15 @@ domReady(function () {
 			workOrderNo = splits[2];
 			//alert("Site");
 		}
-		// if (splits[0] == "Emp") {
-		// 	if(splits[1]=!matchEmpID){
-		// 		// alert("no Emp list");;
-		// 		// return;
-		// 	}
+
+		if (splits[0] == "Emp") {
+			if(splits[1]=!matchEmpID){
+
+
+				// alert("no Emp list");;
+				// return;
+
+			}
 			infoSplitA = splits[1];
 			infoSplitB = splits[2];
 			//alert("Emp");

@@ -1,0 +1,1678 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>ViSmart Factory</title>
+
+    
+    <script src="script.js"></script>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@500;700&display=swap" rel="stylesheet"> 
+    
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="globalvariables.js"></script>
+
+    <style>
+       .validation-failed {
+        border: 2px solid red !important;
+    }
+
+        input[type="date"]::-webkit-calendar-picker-indicator {
+
+            filter: invert(100%);
+        }
+        
+/* Style for the popup form */
+.popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  outline: 3px solid white; /*   Add this line to set the border color to white */
+  border-radius: 2%;
+}
+
+.popupProduct {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  outline: 3px solid white;
+  border-radius: 2%;
+}
+
+/* Style to close button */
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+#closeUserFormButton {
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px; /* Adjust the width and height to make it circular */
+  height: 40px;
+  font-size: 24px;
+  cursor: pointer;
+  margin-top: 1%;
+  margin-right: 3%;
+}
+
+#closeUserFormButton:hover {
+  background-color: darkred;
+}
+
+#closeProductFormButton {
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px; /* Adjust the width and height to make it circular */
+  height: 40px;
+  font-size: 24px;
+  cursor: pointer;
+  margin-top: 1%;
+  margin-right: 3%;
+}
+
+#closeProductFormButton:hover {
+  background-color: darkred;
+}
+
+#closeVehicleFormButton {
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px; /* Adjust the width and height to make it circular */
+  height: 40px;
+  font-size: 24px;
+  cursor: pointer;
+  margin-top: 1%;
+  margin-right: 3%;
+}
+
+#closeVehicleFormButton:hover {
+  background-color: darkred;
+}
+
+.main-sidebar {
+        padding-left: 20px; /* Adjust the indentation as needed */
+    }
+
+    .sub-sidebar {
+        padding-left: 20px; /* Adjust the indentation as needed */
+        background-color: #f8f9fa; /* Add background color for sub-sidebar */
+    }
+    ::placeholder {
+        color: white !important;
+    }
+
+    label {
+    color: white !important;
+}
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid position-relative d-flex p-0">
+
+        <!-- Sidebar Start -->
+        <div class="sidebar  bg-white">
+            <nav class="navbar bg-white">
+                <a class="navbar-brand mx-4 mb-3 ">
+                    <h4 class="text-primary">Vishruta Enterprises</h4>
+                </a>
+
+                <div class="navbar-nav w-100">
+                    <a href="masterdata-hrms.html" class="nav-item nav-link" id="dashboardLink">
+                        <i class="fa fa-chart-bar me-2"></i>Master
+                    </a>
+                    <a href="update-masterdata.html" class="nav-item nav-link" id="dashboardLink">
+                        <i class="fa fa-chart-bar me-2"></i>Update Forms
+                    </a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" >
+                            <i class="fa fa-th me-2"></i> Tables
+                        </a>
+                        <div class="dropdown-menu border-0" class="navbar-nav w-100">
+                            <a href="employeetable.html" class="nav-link dropdown-item">
+                                 Employee Table
+                            </a>
+                            <a href="employeefixedwageTable.html" class="nav-link dropdown-item">
+                                Employee Fixed Wage Table
+                           </a>
+                            
+                            <a href="attendancetable.html" class="nav-link dropdown-item">
+                                Attendance Table
+                            </a>
+                            <a href="bankdetails.html" class="nav-link dropdown-item">
+                                Bank Details Table
+                            </a>
+                            <a href="workordernumbertable.html" class="nav-link dropdown-item">
+                                Work Order No. Table
+                           </a>
+                           <a href="advancestable.html" class="nav-link dropdown-item">
+                            Advances Table
+                           </a>
+                           <a href="workingdatatable.html" class="nav-link dropdown-item">
+                            Working Data Table
+                        </a>
+                            
+                        </div>          
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" >
+                            <i class="fa fa-th me-2"></i> Salary Wages
+                        </a>
+                        <div class="dropdown-menu border-0" class="navbar-nav w-100">
+                            <a href="workmenreference.html" class="nav-link dropdown-item">
+                                Workmen Reference
+                            </a>
+                            <a href="workmenstatutory.html" class="nav-link dropdown-item">
+                                Workmen Statutory
+                            </a>
+                            
+                            <a href="staff.html" class="nav-link dropdown-item">
+                                Muster Roll
+                            </a>
+                            <a href="vendortable.html" class="nav-link dropdown-item">
+                                Vendor
+                            </a>
+                        </div>          
+                    </div>
+                    <a href="reports.html" class="nav-item nav-link active" id="dashboardLink">
+                        <i class="fa fa-chart-bar me-2"></i>Reports
+                    </a>
+                    
+
+                </div>
+            </nav>
+        </div>
+        <!-- Sidebar End -->
+
+        <!-- Content Start -->
+        <div class="content">
+            <!-- Navbar Start -->
+            <nav class="navbar navbar-expand bg-white navbar-dark sticky-top px-4 py-0">
+                <a class="navbar-brand d-flex d-lg-none me-4">
+                    <h2 class="text-primary mb-0"><i class="fa fa-user-edit"></i></h2>
+                </a>
+                <a href="#" class="sidebar-toggler flex-shrink-0">
+                    <i class="fa fa-bars"></i>
+                </a>
+
+            </nav>
+        <!-- Sidebar End -->
+
+        <div class="container-fluid pt-4 px-4">
+            <div class="row g-4">
+                <div class="col-12">
+                    <div class="bg-secondary rounded h-100 p-4">
+                        <h4>Download Employee Wise Attendance Cards</h4><br>
+                        <div class="mb-3">
+                            <div class="d-flex">
+
+                                <select class="form-select text-white mb-2 mr-2" id="monthEmployeeWiseattendance"  style="color: white; width: 15%; border-color: white;" aria-placeholder="Select Month" required>
+                                    <option value="" style="background-color: blue; color: black;" disabled selected>Select Month</option>
+                                    <option style="background-color: white; color: black;">01</option>
+                                    <option style="background-color: white; color: black;">02</option>
+                                    <option style="background-color: white; color: black;">03</option>
+                                    <option style="background-color: white; color: black;">04</option>
+                                    <option style="background-color: white; color: black;">05</option>
+                                    <option style="background-color: white; color: black;">06</option>
+                                    <option style="background-color: white; color: black;">07</option>
+                                    <option style="background-color: white; color: black;">08</option>
+                                    <option style="background-color: white; color: black;">09</option>
+                                    <option style="background-color: white; color: black;">10</option>
+                                    <option style="background-color: white; color: black;">11</option>
+                                    <option style="background-color: white; color: black;">12</option>
+                                </select>&nbsp;&nbsp;&nbsp;
+                                
+                                <input type="text" class="form-control text-white mb-2 mr-2" style="width: 15%; border-color: white;" id="yearEmployeeWiseattendance" placeholder="Enter Year" required>&nbsp;&nbsp;&nbsp;
+                                
+                                
+                                <button class="btn btn-success" id="userformopenbutton" onclick="postEmployeeWiseAttendance()" style="height: 10%;">Submit</button>
+                            </div>
+                            <div id="successEmployeeWiseAttendanceContainer" class="text-success mb-3"></div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid pt-4 px-4">
+            <div class="row g-4">
+                <div class="col-12">
+                    <div class="bg-secondary rounded h-100 p-4">
+                        <h4>Download Date Wise Attendance Cards</h4><br>
+                        <div class="mb-3">
+                            <div class="d-flex">
+
+                                <input type="date" class="form-control text-white mb-2 mr-2" style="width: 15%; border-color: white;" id="indateforattendancecard" placeholder="Enter date" required>&nbsp;&nbsp;&nbsp;
+                                
+                                <select class="form-select mb-2" style="width: 23%; color: white; border-color: white;" id="WONfordatewiseattendancecard">
+                                    <option value="" style="background-color: blue; color: black;" disabled selected>Select Work Order Number</option>
+                                </select>&nbsp;&nbsp;&nbsp;
+                                
+                                <button class="btn btn-success" id="userformopenbutton" onclick="postDateWiseAttendance()" style="height: 10%;">Submit</button>
+                            </div>
+                            <div id="successDateWiseAttendanceContainer" class="text-success mb-3"></div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="container-fluid pt-4 px-4">
+            <div class="row g-4">
+                <div class="col-12">
+                    <div class="bg-secondary rounded h-100 p-4">
+                        <h4>Download Attendance Card</h4><br>
+                        <div class="mb-3">
+                            <div class="d-flex">
+                               
+                                <!-- Dropdown menu for Work Order Numbers -->
+    <select class="form-select mb-2" style="width: 23%; color: white; border-color: white;" id="WONforattendance">
+        <option value="" style="background-color: blue; color: black;" disabled selected>Select Work Order Number</option>
+    </select>&nbsp;&nbsp;&nbsp;
+                                
+                                <select class="form-select text-white mb-2 mr-2" id="monthattendance" name="vehicleNumber" style="color: white; width: 15%; border-color: white;" aria-placeholder="Select Month" required>
+                                    <option value="" style="background-color: blue; color: black;" disabled selected>Select Month</option>
+                                    <option style="background-color: white; color: black;">01</option>
+                                    <option style="background-color: white; color: black;">02</option>
+                                    <option style="background-color: white; color: black;">03</option>
+                                    <option style="background-color: white; color: black;">04</option>
+                                    <option style="background-color: white; color: black;">05</option>
+                                    <option style="background-color: white; color: black;">06</option>
+                                    <option style="background-color: white; color: black;">07</option>
+                                    <option style="background-color: white; color: black;">08</option>
+                                    <option style="background-color: white; color: black;">09</option>
+                                    <option style="background-color: white; color: black;">10</option>
+                                    <option style="background-color: white; color: black;">11</option>
+                                    <option style="background-color: white; color: black;">12</option>
+                                </select>&nbsp;&nbsp;&nbsp;
+                                
+                                <input type="text" class="form-control text-white mb-2 mr-2" style="width: 15%; border-color: white;" id="yearattendance" placeholder="Enter Year" required>&nbsp;&nbsp;&nbsp;
+                                
+                                <button class="btn btn-success" id="userformopenbutton" onclick="postAttendanceCard()" style="height: 10%;">Submit</button>
+                            </div>
+                            <div id="successAttendanceCardContainer" class="text-success mb-3"></div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="container-fluid pt-4 px-4">
+            <div class="row g-4">
+                <div class="col-12">
+
+                    <div class="bg-secondary rounded h-100 p-4">
+                        <h4>Download Workmen Reference Payslip</h4><br>
+                    
+                        <div class="mb-3">
+                            <div class="d-flex">
+                                <select class="form-select mb-2" style="width: 23%; color: white; border-color: white;" id="WONforRef">
+                                    <option value="" style="background-color: blue; color: black;" disabled selected>Select Work Order Number</option>
+                                </select>&nbsp;&nbsp;&nbsp;
+
+                                <select class="form-select text-white mb-2 mr-2" id="monthpayref" style="color: white; width: 15%; border-color: white;" aria-placeholder="Select Month" required>
+                                    <option value="" style="background-color: blue; color: black;" disabled selected>Select Month</option>
+                                    <option style="background-color: white; color: black;">01</option>
+                                    <option style="background-color: white; color: black;">02</option>
+                                    <option style="background-color: white; color: black;">03</option>
+                                    <option style="background-color: white; color: black;">04</option>
+                                    <option style="background-color: white; color: black;">05</option>
+                                    <option style="background-color: white; color: black;">06</option>
+                                    <option style="background-color: white; color: black;">07</option>
+                                    <option style="background-color: white; color: black;">08</option>
+                                    <option style="background-color: white; color: black;">09</option>
+                                    <option style="background-color: white; color: black;">10</option>
+                                    <option style="background-color: white; color: black;">11</option>
+                                    <option style="background-color: white; color: black;">12</option>
+                                </select>&nbsp;&nbsp;&nbsp;
+                                
+                                <input type="text" class="form-control text-white mb-2 mr-2" style="width: 15%; border-color: white;" id="yearpayRef" placeholder="Enter Year" required>&nbsp;&nbsp;&nbsp;
+                                
+                                <button class="btn btn-success" id="userformopenbutton" onclick="postEmpRefPayslip()" style="height: 10%;">Submit</button>
+                            </div>
+                            <div id="successrefpayslipContainer" class="text-success mb-3"></div>
+                        </div>
+                    </div>
+                    
+
+                    
+
+                </div>
+            </div>
+        </div>
+        
+        <div class="container-fluid pt-4 px-4">
+            <div class="row g-4">
+                <div class="col-12">
+                    <div class="bg-secondary rounded h-100 p-4">
+                        <h4>Download Statutory Payslip</h4><br>
+
+                        <div class="mb-3">
+                            <div class="d-flex">
+                                <select class="form-select mb-2" style="width: 23%; color: white; border-color: white;" id="WONforSat">
+                                    <option value="" style="background-color: blue; color: black;" disabled selected>Select Work Order Number</option>
+                                </select>&nbsp;&nbsp;&nbsp;
+
+                                <select class="form-select text-white mb-2 mr-2" id="monthpaysat" name="vehicleNumber" style="color: white; width: 15%; border-color: white;" aria-placeholder="Select Month" required>
+                                    <option value="" style="background-color: blue; color: black;" disabled selected>Select Month</option>
+                                    <option style="background-color: white; color: black;">01</option>
+                                    <option style="background-color: white; color: black;">02</option>
+                                    <option style="background-color: white; color: black;">03</option>
+                                    <option style="background-color: white; color: black;">04</option>
+                                    <option style="background-color: white; color: black;">05</option>
+                                    <option style="background-color: white; color: black;">06</option>
+                                    <option style="background-color: white; color: black;">07</option>
+                                    <option style="background-color: white; color: black;">08</option>
+                                    <option style="background-color: white; color: black;">09</option>
+                                    <option style="background-color: white; color: black;">10</option>
+                                    <option style="background-color: white; color: black;">11</option>
+                                    <option style="background-color: white; color: black;">12</option>
+                                </select>&nbsp;&nbsp;&nbsp;
+                                
+                                <input type="text" class="form-control text-white mb-2 mr-2" style="width: 15%; border-color: white;" id="yearpaysat" placeholder="Enter Year" required>&nbsp;&nbsp;&nbsp;
+                                
+                                <button class="btn btn-success" id="userformopenbutton" onclick="postEmpSatPayslip()" style="height: 10%;">Submit</button>
+                            </div>
+                            <div id="successstatuatorypayslipContainer" class="text-success mb-3"></div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid pt-4 px-4">
+            <div class="row g-4">
+                <div class="col-12">
+                    <div class="bg-secondary rounded h-100 p-4">
+                        <h4>Download Employee wise all site Payslips</h4><br>
+                        <div class="mb-3">
+                            <div class="d-flex">
+
+                                <select class="form-select text-white" id="wageType" style="width: 16%; height: 38px; border-color: white;" placeholder="Select Wage Type">
+                                    <option value="" style="background-color: blue; color: black;" disabled selected>Select Wage Type</option>
+                                    <option  value="statutory" style="color: black; background-color: white;">statutory</option>
+                                    <option  value="reference" style="color: black; background-color: white;">reference</option>
+                                </select>&nbsp;&nbsp;&nbsp;
+
+                                
+                                <select class="form-select text-white mb-2 mr-2" id="monthempwisepayslip" name="vehicleNumber" style="color: white; width: 15%; border-color: white;" aria-placeholder="Select Month" required>
+                                    <option value="" style="background-color: blue; color: black;" disabled selected>Select Month</option>
+                                    <option style="background-color: white; color: black;">01</option>
+                                    <option style="background-color: white; color: black;">02</option>
+                                    <option style="background-color: white; color: black;">03</option>
+                                    <option style="background-color: white; color: black;">04</option>
+                                    <option style="background-color: white; color: black;">05</option>
+                                    <option style="background-color: white; color: black;">06</option>
+                                    <option style="background-color: white; color: black;">07</option>
+                                    <option style="background-color: white; color: black;">08</option>
+                                    <option style="background-color: white; color: black;">09</option>
+                                    <option style="background-color: white; color: black;">10</option>
+                                    <option style="background-color: white; color: black;">11</option>
+                                    <option style="background-color: white; color: black;">12</option>
+                                </select>&nbsp;&nbsp;&nbsp;
+                                
+                                <input type="text" class="form-control text-white mb-2 mr-2" style="width: 15%; border-color: white;" id="yearempwisepayslip" placeholder="Enter Year" required>&nbsp;&nbsp;&nbsp;
+                                
+                                <button class="btn btn-success" onclick="postEmpWisePayslip()" style="height: 10%;">Submit</button>
+                            </div>
+                            <div id="successEmpWisePayslipContainer" class="text-success mb-3"></div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid pt-4 px-4">
+            <div class="row g-4">
+                <div class="col-12">
+                    <div class="bg-secondary rounded h-100 p-4">
+                        <h4>Download Work Order Number wise Form T</h4><br>
+                        <div class="mb-3">
+                            <div class="d-flex">
+                                <select class="form-select mb-2" style="width: 23%; color: white; border-color: white;" id="WONforformT">
+                                    <option value="" style="background-color: blue; color: black;" disabled selected>Select Work Order Number</option>
+                                </select>&nbsp;&nbsp;&nbsp;
+
+                                <select class="form-select text-white mb-2 mr-2" id="monthformT" name="vehicleNumber" style="color: white; width: 15%; border-color: white;" aria-placeholder="Select Month" required>
+                                    <option value="" style="background-color: blue; color: black;" disabled selected>Select Month</option>
+                                    <option style="background-color: white; color: black;">01</option>
+                                    <option style="background-color: white; color: black;">02</option>
+                                    <option style="background-color: white; color: black;">03</option>
+                                    <option style="background-color: white; color: black;">04</option>
+                                    <option style="background-color: white; color: black;">05</option>
+                                    <option style="background-color: white; color: black;">06</option>
+                                    <option style="background-color: white; color: black;">07</option>
+                                    <option style="background-color: white; color: black;">08</option>
+                                    <option style="background-color: white; color: black;">09</option>
+                                    <option style="background-color: white; color: black;">10</option>
+                                    <option style="background-color: white; color: black;">11</option>
+                                    <option style="background-color: white; color: black;">12</option>
+                                </select>&nbsp;&nbsp;&nbsp;
+                                
+                                <input type="text" class="form-control text-white mb-2 mr-2" style="width: 15%; border-color: white;" id="yearformT" placeholder="Enter Year" required>&nbsp;&nbsp;&nbsp;
+                                
+                                <button class="btn btn-success" id="userformopenbutton" onclick="postformT()" style="height: 10%;">Submit</button>
+                            </div>
+                            <div id="successFormTContainer" class="text-success mb-3"></div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid pt-4 px-4">
+            <div class="row g-4">
+                <div class="col-12">
+                    <div class="bg-secondary rounded h-100 p-4">
+                        <h4>Download All Site Form T</h4><br>
+                        <div class="mb-3">
+                            <div class="d-flex">
+                                
+                                <select class="form-select text-white mb-2 mr-2" id="monthAllSiteformT" name="vehicleNumber" style="color: white; width: 15%; border-color: white;" aria-placeholder="Select Month" required>
+                                    <option value="" style="background-color: blue; color: black;" disabled selected>Select Month</option>
+                                    <option style="background-color: white; color: black;">01</option>
+                                    <option style="background-color: white; color: black;">02</option>
+                                    <option style="background-color: white; color: black;">03</option>
+                                    <option style="background-color: white; color: black;">04</option>
+                                    <option style="background-color: white; color: black;">05</option>
+                                    <option style="background-color: white; color: black;">06</option>
+                                    <option style="background-color: white; color: black;">07</option>
+                                    <option style="background-color: white; color: black;">08</option>
+                                    <option style="background-color: white; color: black;">09</option>
+                                    <option style="background-color: white; color: black;">10</option>
+                                    <option style="background-color: white; color: black;">11</option>
+                                    <option style="background-color: white; color: black;">12</option>
+                                </select>&nbsp;&nbsp;&nbsp;
+                                
+                                <input type="text" class="form-control text-white mb-2 mr-2" style="width: 15%; border-color: white;" id="yearAllSiteformT" placeholder="Enter Year" required>&nbsp;&nbsp;&nbsp;
+                                
+                                <button class="btn btn-success" id="userformopenbutton" onclick="postAllSiteformT()" style="height: 10%;">Submit</button>
+                            </div>
+                            <div id="successAllSiteFormTContainer" class="text-success mb-3"></div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid pt-4 px-4">
+            <div class="row g-4">
+                <div class="col-12">
+                    <div class="bg-secondary rounded h-100 p-4">
+                        <h4>Download Actual Form T</h4><br>
+                        <div class="mb-3">
+                            <div class="d-flex">
+                                <select class="form-select mb-2" style="width: 23%; color: white; border-color: white;" id="WONforRefFormT">
+                                    <option value="" style="background-color: blue; color: black;" disabled selected>Select Work Order Number</option>
+                                </select>&nbsp;&nbsp;&nbsp;
+
+                                <select class="form-select text-white mb-2 mr-2" id="monthRefFormT" style="color: white; width: 15%; border-color: white;" aria-placeholder="Select Month" required>
+                                    <option value="" style="background-color: blue; color: black;" disabled selected>Select Month</option>
+                                    <option style="background-color: white; color: black;">01</option>
+                                    <option style="background-color: white; color: black;">02</option>
+                                    <option style="background-color: white; color: black;">03</option>
+                                    <option style="background-color: white; color: black;">04</option>
+                                    <option style="background-color: white; color: black;">05</option>
+                                    <option style="background-color: white; color: black;">06</option>
+                                    <option style="background-color: white; color: black;">07</option>
+                                    <option style="background-color: white; color: black;">08</option>
+                                    <option style="background-color: white; color: black;">09</option>
+                                    <option style="background-color: white; color: black;">10</option>
+                                    <option style="background-color: white; color: black;">11</option>
+                                    <option style="background-color: white; color: black;">12</option>
+                                </select>&nbsp;&nbsp;&nbsp;
+                                
+                                <input type="text" class="form-control text-white mb-2 mr-2" style="width: 15%; border-color: white;" id="yearRefFormT" placeholder="Enter Year" required>&nbsp;&nbsp;&nbsp;
+                                
+                                <button class="btn btn-success" onclick="postRefFormT()" style="height: 10%;">Submit</button>
+                            </div>
+                            <div id="successRefFormTContainer" class="text-success mb-3"></div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid pt-4 px-4">
+            <div class="row g-4">
+                <div class="col-12">
+                    <div class="bg-secondary rounded h-100 p-4">
+                        <h4>Download Form Q</h4><br>
+                        <div class="mb-3">
+                            <div class="d-flex">
+                                <select class="form-select mb-2" style="width: 23%; color: white; border-color: white;" id="WONforformQ">
+                                    <option value="" style="background-color: blue; color: black;" disabled selected>Select Work Order Number</option>
+                                </select>&nbsp;&nbsp;&nbsp;
+                                <select class="form-select text-white mb-2 mr-2" id="monthformQ" name="vehicleNumber" style="color: white; width: 15%; border-color: white;" aria-placeholder="Select Month" required>
+                                    <option value="" style="background-color: blue; color: black;" disabled selected>Select Month</option>
+                                    <option style="background-color: white; color: black;">01</option>
+                                    <option style="background-color: white; color: black;">02</option>
+                                    <option style="background-color: white; color: black;">03</option>
+                                    <option style="background-color: white; color: black;">04</option>
+                                    <option style="background-color: white; color: black;">05</option>
+                                    <option style="background-color: white; color: black;">06</option>
+                                    <option style="background-color: white; color: black;">07</option>
+                                    <option style="background-color: white; color: black;">08</option>
+                                    <option style="background-color: white; color: black;">09</option>
+                                    <option style="background-color: white; color: black;">10</option>
+                                    <option style="background-color: white; color: black;">11</option>
+                                    <option style="background-color: white; color: black;">12</option>
+                                </select>&nbsp;&nbsp;&nbsp;
+                                
+                                <input type="text" class="form-control text-white mb-2 mr-2" style="width: 15%; border-color: white;" id="yearformQ" placeholder="Enter Year" required>&nbsp;&nbsp;&nbsp;
+                                
+                                <button class="btn btn-success" id="userformopenbutton" onclick="postformQ()" style="height: 10%;">Submit</button>
+                            </div>
+                            <div id="successFormQContainer" class="text-success mb-3"></div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid pt-4 px-4">
+            <div class="row g-4">
+                <div class="col-12">
+                    <div class="bg-secondary rounded h-100 p-4">
+                        <h4>Merge Files</h4><br>
+                        <div class="mb-3">
+                            <div class="d-flex">
+                                <input type="file" class="form-control text-primary mb-2 mr-2" style="max-width: 25%;" placeholder="Select Folder" id="fileInput1" webkitdirectory multiple />&nbsp;&nbsp;&nbsp;
+                                <input type="file" class="form-control text-primary mb-2 mr-2" style="max-width: 25%;" placeholder="Select Folder" id="fileInput2" webkitdirectory multiple />&nbsp;&nbsp;&nbsp;
+                                <input type="file" class="form-control text-primary mb-2 mr-2" style="max-width: 25%;" placeholder="Select Folder" id="fileInput3" webkitdirectory multiple />&nbsp;&nbsp;&nbsp;
+
+    <select class="form-select text-white mb-2 mr-2" id="monthMergeFiles"  style="color: white; width: 15%; border-color: white;" aria-placeholder="Select Month" required>
+        <option value="" style="background-color: blue; color: black;" disabled selected>Select Month</option>
+        <option style="background-color: white; color: black;">01</option>
+        <option style="background-color: white; color: black;">02</option>
+        <option style="background-color: white; color: black;">03</option>
+        <option style="background-color: white; color: black;">04</option>
+        <option style="background-color: white; color: black;">05</option>
+        <option style="background-color: white; color: black;">06</option>
+        <option style="background-color: white; color: black;">07</option>
+        <option style="background-color: white; color: black;">08</option>
+        <option style="background-color: white; color: black;">09</option>
+        <option style="background-color: white; color: black;">10</option>
+        <option style="background-color: white; color: black;">11</option>
+        <option style="background-color: white; color: black;">12</option>
+    </select>&nbsp;&nbsp;&nbsp;
+    
+    <input type="text" class="form-control text-white mb-2 mr-2" style="width: 15%; border-color: white;" id="yearMergeFiles" placeholder="Enter Year" required>&nbsp;&nbsp;&nbsp;
+    
+                                <button class="btn btn-success" onclick="uploadFile()" style="height: 10%;">Upload</button>
+                            </div>
+                            <div id="successMergeFilesContainer" class="text-success mb-3"></div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid pt-4 px-4">
+            <div class="row g-4">
+                <div class="col-12">
+                    <div class="bg-secondary rounded h-100 p-4">
+                        <h4>Generate MUSTER ROLL</h4><br>
+                        <div class="mb-3">
+                            <div class="d-flex">
+                               
+                                <!-- Dropdown menu for Work Order Numbers -->
+    <select class="form-select mb-2" style="width: 23%; color: white; border-color: white;" id="WONforGeneratingMUSTER">
+        <option value="" style="background-color: blue; color: black;" disabled selected>Select Work Order Number</option>
+    </select>&nbsp;&nbsp;&nbsp;
+                                
+                                <select class="form-select text-white mb-2 mr-2" id="monthGeneratingMUSTER"  style="color: white; width: 15%; border-color: white;" aria-placeholder="Select Month" required>
+                                    <option value="" style="background-color: blue; color: black;" disabled selected>Select Month</option>
+                                    <option style="background-color: white; color: black;">01</option>
+                                    <option style="background-color: white; color: black;">02</option>
+                                    <option style="background-color: white; color: black;">03</option>
+                                    <option style="background-color: white; color: black;">04</option>
+                                    <option style="background-color: white; color: black;">05</option>
+                                    <option style="background-color: white; color: black;">06</option>
+                                    <option style="background-color: white; color: black;">07</option>
+                                    <option style="background-color: white; color: black;">08</option>
+                                    <option style="background-color: white; color: black;">09</option>
+                                    <option style="background-color: white; color: black;">10</option>
+                                    <option style="background-color: white; color: black;">11</option>
+                                    <option style="background-color: white; color: black;">12</option>
+                                </select>&nbsp;&nbsp;&nbsp;
+                                
+                                <input type="text" class="form-control text-white mb-2 mr-2" style="width: 15%; border-color: white;" id="year_GeneratingMUSTER" placeholder="Enter Year" required>&nbsp;&nbsp;&nbsp;
+                                
+                                <button class="btn btn-success" onclick="postGenerateMUSTER()" style="height: 10%;">Submit</button>
+                            </div>
+                            <div id="successGeneratingMUSTERContainer" class="text-success mb-3"></div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid pt-4 px-4">
+            <div class="row g-4">
+                <div class="col-12">
+                    <div class="bg-secondary rounded h-100 p-4">
+                        <h4>Download MUSTER ROLL</h4><br>
+                        <div class="mb-3">
+                            <div class="d-flex">
+                               
+                                <!-- Dropdown menu for Work Order Numbers -->
+    <select class="form-select mb-2" style="width: 23%; color: white; border-color: white;" id="WONforMUSTER">
+        <option value="" style="background-color: blue; color: black;" disabled selected>Select Work Order Number</option>
+    </select>&nbsp;&nbsp;&nbsp;
+                                
+                                <select class="form-select text-white mb-2 mr-2" id="monthMUSTER" name="vehicleNumber" style="color: white; width: 15%; border-color: white;" aria-placeholder="Select Month" required>
+                                    <option value="" style="background-color: blue; color: black;" disabled selected>Select Month</option>
+                                    <option style="background-color: white; color: black;">01</option>
+                                    <option style="background-color: white; color: black;">02</option>
+                                    <option style="background-color: white; color: black;">03</option>
+                                    <option style="background-color: white; color: black;">04</option>
+                                    <option style="background-color: white; color: black;">05</option>
+                                    <option style="background-color: white; color: black;">06</option>
+                                    <option style="background-color: white; color: black;">07</option>
+                                    <option style="background-color: white; color: black;">08</option>
+                                    <option style="background-color: white; color: black;">09</option>
+                                    <option style="background-color: white; color: black;">10</option>
+                                    <option style="background-color: white; color: black;">11</option>
+                                    <option style="background-color: white; color: black;">12</option>
+                                </select>&nbsp;&nbsp;&nbsp;
+                                
+                                <input type="text" class="form-control text-white mb-2 mr-2" style="width: 15%; border-color: white;" id="year_MUSTER" placeholder="Enter Year" required>&nbsp;&nbsp;&nbsp;
+                                
+                                <button class="btn btn-success" onclick="postMUSTER()" style="height: 10%;">Submit</button>
+                            </div>
+                            <div id="successMUSTERContainer" class="text-success mb-3"></div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid pt-4 px-4">
+            <div class="row g-4">
+                <div class="col-12">
+                    <div class="bg-secondary rounded h-100 p-4">
+                        <h4>Download Declaration Form</h4><br>
+                        <div class="mb-3">
+                            <div class="d-flex">
+                               
+                                <!-- Dropdown menu for Work Order Numbers -->
+    <select class="form-select mb-2" style="width: 23%; color: white; border-color: white;" id="WONforDeclaration">
+        <option value="" style="background-color: blue; color: black;" disabled selected>Select Work Order Number</option>
+    </select>&nbsp;&nbsp;&nbsp;
+                                
+                                <select class="form-select text-white mb-2 mr-2" id="monthDeclaration" style="color: white; width: 15%; border-color: white;" aria-placeholder="Select Month" required>
+                                    <option value="" style="background-color: blue; color: black;" disabled selected>Select Month</option>
+                                    <option style="background-color: white; color: black;">01</option>
+                                    <option style="background-color: white; color: black;">02</option>
+                                    <option style="background-color: white; color: black;">03</option>
+                                    <option style="background-color: white; color: black;">04</option>
+                                    <option style="background-color: white; color: black;">05</option>
+                                    <option style="background-color: white; color: black;">06</option>
+                                    <option style="background-color: white; color: black;">07</option>
+                                    <option style="background-color: white; color: black;">08</option>
+                                    <option style="background-color: white; color: black;">09</option>
+                                    <option style="background-color: white; color: black;">10</option>
+                                    <option style="background-color: white; color: black;">11</option>
+                                    <option style="background-color: white; color: black;">12</option>
+                                </select>&nbsp;&nbsp;&nbsp;
+                                
+                                <input type="text" class="form-control text-white mb-2 mr-2" style="width: 15%; border-color: white;" id="yearDeclaration" placeholder="Enter Year" required>&nbsp;&nbsp;&nbsp;
+                                
+                                <button class="btn btn-success" onclick="postDeclaration()" style="height: 10%;">Submit</button>
+                            </div>
+                            <div id="successDeclarationContainer" class="text-success mb-3"></div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid pt-4 px-4">
+            <div class="row g-4">
+                <div class="col-12">
+                    <div class="bg-secondary rounded h-100 p-4">
+                        <h4>Download Bank Challen</h4><br>
+                        <div class="mb-3">
+                            <div class="d-flex">
+
+                                <select class="form-select text-white" id="bankType" style="width: 16%; height: 38px; border-color: white;" placeholder="Select Bank Type" onchange="filterTableByBankType()">
+                                    <option value="" style="background-color: blue; color: black;" disabled selected>Select Bank Type</option>
+                                    <option  value="SBI" style="color: black; background-color: white;">SBI</option>
+                                    <option  value="OTHERS" style="color: black; background-color: white;">Other Bank</option>
+                                </select>&nbsp;&nbsp;&nbsp;
+
+                                <select class="form-select mb-2" style="width: 23%; color: white; border-color: white;" id="WONforBankChallen">
+                                    <option value="" style="background-color: blue; color: black;" disabled selected>Select Work Order Number</option>
+                                </select>&nbsp;&nbsp;&nbsp;
+                                <select class="form-select text-white mb-2 mr-2" id="monthBankChallen" name="vehicleNumber" style="color: white; width: 15%; border-color: white;" aria-placeholder="Select Month" required>
+                                    <option value="" style="background-color: blue; color: black;" disabled selected>Select Month</option>
+                                    <option style="background-color: white; color: black;">01</option>
+                                    <option style="background-color: white; color: black;">02</option>
+                                    <option style="background-color: white; color: black;">03</option>
+                                    <option style="background-color: white; color: black;">04</option>
+                                    <option style="background-color: white; color: black;">05</option>
+                                    <option style="background-color: white; color: black;">06</option>
+                                    <option style="background-color: white; color: black;">07</option>
+                                    <option style="background-color: white; color: black;">08</option>
+                                    <option style="background-color: white; color: black;">09</option>
+                                    <option style="background-color: white; color: black;">10</option>
+                                    <option style="background-color: white; color: black;">11</option>
+                                    <option style="background-color: white; color: black;">12</option>
+                                </select>&nbsp;&nbsp;&nbsp;
+                                
+                                <input type="text" class="form-control text-white mb-2 mr-2" style="width: 15%; border-color: white;" id="yearBankChallen" placeholder="Enter Year" required>&nbsp;&nbsp;&nbsp;
+                                
+                                <button class="btn btn-success" id="userformopenbutton" onclick="postBankChallen()" style="height: 10%;">Submit</button>
+                            </div>
+                            <div id="successBankChallenContainer" class="text-success mb-3"></div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid pt-4 px-4">
+            <div class="row g-4">
+                <div class="col-12">
+                    <div class="bg-secondary rounded h-100 p-4">
+                        <h4>Download Form 1</h4><br>
+                        <div class="mb-3">
+                            <div class="d-flex">
+
+                                
+                               
+                                <select class="form-select text-white mb-2 mr-2" id="monthform1" name="vehicleNumber" style="color: white; width: 15%; border-color: white;" aria-placeholder="Select Month" required>
+                                    <option value="" style="background-color: blue; color: black;" disabled selected>Select Month</option>
+                                    <option style="background-color: white; color: black;">01</option>
+                                    <option style="background-color: white; color: black;">02</option>
+                                    <option style="background-color: white; color: black;">03</option>
+                                    <option style="background-color: white; color: black;">04</option>
+                                    <option style="background-color: white; color: black;">05</option>
+                                    <option style="background-color: white; color: black;">06</option>
+                                    <option style="background-color: white; color: black;">07</option>
+                                    <option style="background-color: white; color: black;">08</option>
+                                    <option style="background-color: white; color: black;">09</option>
+                                    <option style="background-color: white; color: black;">10</option>
+                                    <option style="background-color: white; color: black;">11</option>
+                                    <option style="background-color: white; color: black;">12</option>
+                                </select>&nbsp;&nbsp;&nbsp;
+                                
+                                <input type="text" class="form-control text-white mb-2 mr-2" style="width: 15%; border-color: white;" id="yearform1" placeholder="Enter Year" required>&nbsp;&nbsp;&nbsp;
+                                
+                                <button class="btn btn-success" id="userformopenbutton" onclick="postform1()" style="height: 10%;">Submit</button>
+                            </div>
+                            <div id="successForm1Container" class="text-success mb-3"></div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+            
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    
+            
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/chart/chart.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/tempusdominus/js/moment.min.js"></script>
+    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+
+    <!--In transit report-->
+
+    <script>
+        // Function to populate the dropdown with work order numbers
+        async function populateDropdowns() {
+            try {
+                // Fetch data from the endpoint
+                const response = await fetch(`http://${ipAddress}:${portserver}/workorderno`);
+                if (!response.ok) {
+                    throw new Error('Failed to fetch data');
+                }
+                const data = await response.json();
+
+                // Populate dropdowns with work order numbers
+                data.forEach(item => {
+                    const option = document.createElement('option');
+                    option.value = item.workorderno;
+                    option.textContent = item.workorderno;
+
+                    option.style.backgroundColor = 'white'; // Set white background
+                        option.style.color = 'black'; // Set text color
+                    
+                    // Append option to each dropdown
+                    
+                    document.getElementById('WONforRef').appendChild(option.cloneNode(true));
+                    document.getElementById('WONforSat').appendChild(option.cloneNode(true));
+                    document.getElementById('WONforformT').appendChild(option.cloneNode(true));
+                    document.getElementById('WONforformQ').appendChild(option.cloneNode(true));
+                    document.getElementById('WONforattendance').appendChild(option.cloneNode(true));
+                    document.getElementById('WONforBankChallen').appendChild(option.cloneNode(true));
+                    document.getElementById('WONforMUSTER').appendChild(option.cloneNode(true));
+                    document.getElementById('WONforDeclaration').appendChild(option.cloneNode(true));
+                    document.getElementById('WONforGeneratingMUSTER').appendChild(option.cloneNode(true));
+                    document.getElementById('WONforRefFormT').appendChild(option.cloneNode(true));
+                   
+                });
+            } catch (error) {
+                console.error('Error fetching or processing data:', error);
+            }
+        }
+
+        // Call the populateDropdowns function when the page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            populateDropdowns();
+        });
+    </script>
+
+    <script>
+        // Function to populate the dropdown with work order numbers
+        async function populateDropdown() {
+            try {
+                // Fetch data from the endpoint
+                const response = await fetch(`http://${ipAddress}:${portserver}/workorderno`);
+                if (!response.ok) {
+                    throw new Error('Failed to fetch data');
+                }
+                const data = await response.json();
+
+                // Get the dropdown element
+                const dropdown = document.getElementById('WONforattendance');
+                const dropdown1 = document.getElementById('WONfordatewiseattendancecard');
+
+                // Populate the dropdown with work order numbers
+                data.forEach(item => {
+                    const option = document.createElement('option');
+                    option.value = item.workorderno;
+                    option.textContent = item.workorderno;
+                    dropdown.appendChild(option);
+                    dropdown1.appendChild(option);
+
+                     // Set styles for the option
+                option.style.backgroundColor = 'white'; // Set white background
+                        option.style.color = 'black'; // Set text color
+                });
+            } catch (error) {
+                console.error('Error fetching or processing data:', error);
+            }
+        }
+
+        // Call the populateDropdown function when the page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            populateDropdown();
+        });
+    </script>
+    <script>
+        // Function to get current month and year
+        function getCurrentMonthYear() {
+            const now = new Date();
+            //const month = (now.getMonth() + 1).toString().padStart(2, '0'); // Ensures two digits with leading zero if necessary
+            const year = now.getFullYear();
+            return year;
+        }
+    
+        // Set current month and year to the input field
+        document.getElementById('year_GeneratingMUSTER').value = getCurrentMonthYear();
+        document.getElementById('yearRefFormT').value = getCurrentMonthYear();
+        document.getElementById('yearpayRef').value = getCurrentMonthYear();
+        document.getElementById('yearattendance').value = getCurrentMonthYear();
+        document.getElementById('yearpaysat').value = getCurrentMonthYear();
+        document.getElementById('yearformT').value = getCurrentMonthYear();
+        document.getElementById('yearformQ').value = getCurrentMonthYear();
+        document.getElementById('yearform1').value = getCurrentMonthYear();
+        document.getElementById('yearBankChallen').value = getCurrentMonthYear();
+        document.getElementById('year_MUSTER').value = getCurrentMonthYear();C
+        document.getElementById('yearDeclaration').value = getCurrentMonthYear();
+        document.getElementById('yearempwisepayslip').value = getCurrentMonthYear();
+        
+        
+    </script>
+    
+    
+    <script>
+        function postEmpWisePayslip() {
+            const wageType = document.getElementById("wageType").value;
+            const month = document.getElementById("monthempwisepayslip").value;
+            const year = document.getElementById("yearempwisepayslip").value;
+
+            // Make sure all fields are filled
+            if (wageType && month && year) {
+                // Prepare the data to send
+                const data = {
+                    month: month,
+                    year: year,
+                    wagetype: wageType
+                };
+
+                // Send a POST request to the server
+                fetch(`http://${ipAddress}:${portserver}/generate_Employee_wise_PaySlips`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                })
+                .then(response => response.text())
+                .then(message => {
+                    // Display the response message
+                    const resultContainer = document.getElementById('successEmpWisePayslipContainer');
+                    resultContainer.textContent = message;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    // Clear any previous message if there's an error
+                    document.getElementById('successEmpWisePayslipContainer').textContent = '';
+                });
+            } else {
+                // Clear any previous message if fields are not filled
+                document.getElementById('successEmpWisePayslipContainer').textContent = '';
+            }
+        }
+    </script>
+
+<script>
+    function uploadFile() {
+        const input1 = document.getElementById('fileInput1');
+        const input2 = document.getElementById('fileInput2');
+        const input3 = document.getElementById('fileInput3');
+        const month = document.getElementById('monthMergeFiles').value;
+        const year = document.getElementById('yearMergeFiles').value;
+
+        if (input1.files.length > 0 && input2.files.length > 0 && month && year) {
+            const formData = new FormData();
+
+            formData.append('month', month); 
+            formData.append('year', year); 
+
+            for (const file of input1.files) {
+                formData.append('file1[]', file);
+            }
+
+            for (const file of input2.files) {
+                formData.append('file2[]', file);
+            }
+
+            for (const file of input3.files) {
+                formData.append('file3[]', file);
+            }
+
+            console.log(formData);
+
+            fetch(`http://${ipAddress}:${portserver}/mergepdf`, {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.text())
+            .then(message => {
+                document.getElementById('successMergeFilesContainer').textContent = message;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                document.getElementById('successMergeFilesContainer').textContent = '';
+            });
+        } else {
+            document.getElementById('successMergeFilesContainer').textContent = '';
+        }
+    }
+</script>
+<script>
+    function postEmpRefPayslip() {
+        // Retrieve values from input fields
+        var workOrderNumber = document.getElementById('WONforRef').value;
+        var month = document.getElementById('monthpayref').value;
+        var year = document.getElementById('yearpayRef').value;
+
+        // Data to be sent to the server
+        var data = {
+            month: month,
+            year: year,
+            workorderno: workOrderNumber,
+            wagetype: 'reference'
+        };
+
+        console.log(data);
+
+        // Make POST request using fetch API
+        fetch(`http://${ipAddress}:${portserver}/generatePaySlips`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.text(); // assuming response is text, change as necessary
+        })
+        .then(responseText => {
+            // Update the success message container with the response text
+            document.getElementById('successrefpayslipContainer').innerText = responseText;
+        })
+        .catch(error => {
+            // Handle errors
+            console.error('There was a problem with your fetch operation:', error);
+        });
+    }
+</script>
+
+    <script>
+        function postEmpSatPayslip() {
+            // Retrieve values from input fields
+            var workOrderNumber = document.getElementById('WONforSat').value;
+            var month = document.getElementById('monthpaysat').value;
+            var year = document.getElementById('yearpaysat').value;
+    
+            // Data to be sent to the server
+            var data = {
+                month: month,
+                year: year,
+                workorderno: workOrderNumber,
+                wagetype: 'statutory'
+            };
+    
+            // Make POST request using fetch API
+            fetch(`http://${ipAddress}:${portserver}/generatePaySlips`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.text(); // assuming response is text, change as necessary
+            })
+            .then(responseText => {
+                // Update the success message container with the response text
+                document.getElementById('successstatuatorypayslipContainer').innerText = responseText;
+            })
+            .catch(error => {
+                // Handle errors
+                console.error('There was a problem with your fetch operation:', error);
+            });
+        }
+    </script>
+
+<script>
+    function postEmployeeWiseAttendance() {
+        // Retrieve values from input fields
+       
+        var month = document.getElementById('monthEmployeeWiseattendance').value;
+        var year = document.getElementById('yearEmployeeWiseattendance').value;
+
+        // Data to be sent to the server
+        var data = {
+            month: month,
+            year: year,
+           
+        };
+
+        console.log(data);
+
+        // Make POST request using fetch API
+        fetch(`http://${ipAddress}:${portserver}/generate__employee_wise_Attendance_card`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.text(); // assuming response is text, change as necessary
+        })
+        .then(responseText => {
+            // Update the success message container with the response text
+            document.getElementById('successEmployeeWiseAttendanceContainer').innerText = responseText;
+        })
+        .catch(error => {
+            // Handle errors
+            console.error('There was a problem with your fetch operation:', error);
+        });
+    }
+</script>
+
+<script>
+    function postDateWiseAttendance() {
+        // Retrieve values from input fields
+        var indate = document.getElementById('indateforattendancecard').value;
+        var won = document.getElementById('WONfordatewiseattendancecard').value;
+
+        // Function to format the date to dd-mm-yyyy
+        function formatDate(dateString) {
+            var dateParts = dateString.split('-');
+            return `${dateParts[2]}-${dateParts[1]}-${dateParts[0]}`;
+        }
+
+        // Format the input date
+        var formattedDate = formatDate(indate);
+
+        // Data to be sent to the server
+        var data = {
+            in_date: formattedDate,
+            workorderno: won,
+        };
+
+        console.log(data);
+
+        // Make POST request using fetch API
+        fetch(`http://${ipAddress}:${portserver}/generateAttendancecards_indate`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.text(); // assuming response is text, change as necessary
+        })
+        .then(responseText => {
+            // Update the success message container with the response text
+            document.getElementById('successDateWiseAttendanceContainer').innerText = responseText;
+        })
+        .catch(error => {
+            // Handle errors
+            console.error('There was a problem with your fetch operation:', error);
+        });
+    }
+</script>
+
+    
+    <script>
+        function postAttendanceCard() {
+            // Retrieve values from input fields
+            var workOrderNumber = document.getElementById('WONforattendance').value;
+            var month = document.getElementById('monthattendance').value;
+            var year = document.getElementById('yearattendance').value;
+    
+            // Data to be sent to the server
+            var data = {
+                month: month,
+                year: year,
+                workorderno: workOrderNumber
+            };
+    
+            // Make POST request using fetch API
+            fetch(`http://${ipAddress}:${portserver}/generateAttendancecards`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.text(); // assuming response is text, change as necessary
+            })
+            .then(responseText => {
+                // Update the success message container with the response text
+                document.getElementById('successAttendanceCardContainer').innerText = responseText;
+            })
+            .catch(error => {
+                // Handle errors
+                console.error('There was a problem with your fetch operation:', error);
+            });
+        }
+    </script>
+
+<script>
+    function postGenerateMUSTER() {
+        // Retrieve values from input fields
+        var workOrderNumber = document.getElementById('WONforGeneratingMUSTER').value;
+        var month = document.getElementById('monthGeneratingMUSTER').value;
+        var year = document.getElementById('year_GeneratingMUSTER').value;
+       
+
+        // Data to be sent to the server
+        var data = {
+            workorder_no: workOrderNumber,
+            month: month,
+            year: year
+        };
+
+        console.log(data);
+
+        // Make POST request using fetch API
+        fetch(`http://${ipAddress}:${portserver}/generate_muster_roll`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.text(); // assuming response is text, change as necessary
+        })
+        .then(responseText => {
+            // Update the success message container with the response text
+            document.getElementById('successGeneratingMUSTERContainer').innerText = responseText;
+        })
+        .catch(error => {
+            // Handle errors
+            console.error('There was a problem with your fetch operation:', error);
+            document.getElementById('successGeneratingMUSTERContainer').innerText = 'Error generating muster roll';
+        });
+    }
+</script>
+
+
+
+<script>
+    function postMUSTER() {
+        // Retrieve values from input fields
+        var workOrderNumber = document.getElementById('WONforMUSTER').value;
+        var month = document.getElementById('monthMUSTER').value;
+        var year = document.getElementById('year_MUSTER').value;
+        var monthyear = `${month}${year}`;
+
+        // Data to be sent to the server
+        var data = {
+            workorder_no: workOrderNumber,
+            monthyear: monthyear
+        };
+
+        console.log(data);
+
+        // Make POST request using fetch API
+        fetch(`http://${ipAddress}:${portserver}/download_muster_roll`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.text(); // assuming response is text, change as necessary
+        })
+        .then(responseText => {
+            // Update the success message container with the response text
+            document.getElementById('successMUSTERContainer').innerText = responseText;
+        })
+        .catch(error => {
+            // Handle errors
+            console.error('There was a problem with your fetch operation:', error);
+            document.getElementById('successMUSTERContainer').innerText = 'Error downloading muster roll';
+        });
+    }
+</script>
+
+<script>
+    function postform1() {
+        // Retrieve values from input fields
+        var month = document.getElementById('monthform1').value;
+        var year = document.getElementById('yearform1').value;
+       
+
+        // Data to be sent to the server
+        var data = { 
+            month: month,
+            year: year
+        };
+
+        console.log(data);
+
+        // Make POST request using fetch API
+        fetch(`http://${ipAddress}:${portserver}/generateForm1`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.text(); // assuming response is text, change as necessary
+        })
+        .then(responseText => {
+            // Update the success message container with the response text
+            document.getElementById('successForm1Container').innerText = responseText;
+        })
+        .catch(error => {
+            // Handle errors
+            console.error('There was a problem with your fetch operation:', error);
+            document.getElementById('successForm1Container').innerText = 'Error generating FORM 1';
+        });
+    }
+</script>
+
+<script>
+    function postDeclaration() {
+        // Retrieve values from input fields
+        var workOrderNumber = document.getElementById('WONforDeclaration').value;
+        var month = document.getElementById('monthDeclaration').value;
+        var year = document.getElementById('yearDeclaration').value;
+        var monthyear = `${month}${year}`;
+
+        // Data to be sent to the server
+        var data = {
+            work_orderno: workOrderNumber,
+            monthyear: monthyear
+        };
+
+        console.log(data);
+
+        // Make POST request using fetch API
+        fetch(`http://${ipAddress}:${portserver}/download_declaration_form`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.text(); // assuming response is text, change as necessary
+        })
+        .then(responseText => {
+            // Update the success message container with the response text
+            document.getElementById('successDeclarationContainer').innerText = responseText;
+        })
+        .catch(error => {
+            // Handle errors
+            console.error('There was a problem with your fetch operation:', error);
+            document.getElementById('successDeclarationContainer').innerText = 'Error downloading muster roll';
+        });
+    }
+</script>
+
+    
+    <script>
+        function postformT() {
+            // Retrieve values from input fields
+            var workOrderNumber = document.getElementById('WONforformT').value;
+            var month = document.getElementById('monthformT').value;
+            var year = document.getElementById('yearformT').value;
+    
+            // Data to be sent to the server
+            var data = {
+                month: month,
+                year: year,
+                workorderno: workOrderNumber
+            };
+
+            console.log(data);
+    
+            // Make POST request using fetch API
+            fetch(`http://${ipAddress}:${portserver}/generateFormT`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.text(); // assuming response is text, change as necessary
+            })
+            .then(responseText => {
+                // Update the success message container with the response text
+                document.getElementById('successFormTContainer').innerText = responseText;
+            })
+            .catch(error => {
+                // Handle errors
+                console.error('There was a problem with your fetch operation:', error);
+            });
+        }
+    </script>
+
+<script>
+    function postAllSiteformT() {
+       
+        var month = document.getElementById('monthAllSiteformT').value;
+        var year = document.getElementById('yearAllSiteformT').value;
+
+        // Data to be sent to the server
+        var data = {
+            month: month,
+            year: year
+         
+        };
+
+        console.log(data);
+
+        console.log(data);
+
+        // Make POST request using fetch API
+        fetch(`http://${ipAddress}:${portserver}/generateFormT_All_Site`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.text(); // assuming response is text, change as necessary
+        })
+        .then(responseText => {
+            // Update the success message container with the response text
+            document.getElementById('successAllSiteFormTContainer').innerText = responseText;
+        })
+        .catch(error => {
+            // Handle errors
+            console.error('There was a problem with your fetch operation:', error);
+        });
+    }
+</script>
+
+<script>
+    function postRefFormT() {
+        // Retrieve values from input fields
+        var workOrderNumber = document.getElementById('WONforRefFormT').value;
+        var month = document.getElementById('monthRefFormT').value;
+        var year = document.getElementById('yearRefFormT').value;
+
+        // Data to be sent to the server
+        var data = {
+            month: month,
+            year: year,
+            workorderno: workOrderNumber
+        };
+
+        console.log(data);
+
+        // Make POST request using fetch API
+        fetch(`http://${ipAddress}:${portserver}/generateFormTRef`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.text(); // assuming response is text, change as necessary
+        })
+        .then(responseText => {
+            // Update the success message container with the response text
+            document.getElementById('successRefFormTContainer').innerText = responseText;
+        })
+        .catch(error => {
+            // Handle errors
+            console.error('There was a problem with your fetch operation:', error);
+        });
+    }
+</script>
+
+
+<script>
+    async function postformQ() {
+        const workorderno = document.getElementById("WONforformQ").value;
+        const month = document.getElementById("monthformQ").value;
+        const year = document.getElementById("yearformQ").value;
+
+        const formData = {
+            workorderno: workorderno,
+            month: month,
+            year: year
+        };
+
+        console.log(formData);
+
+        try {
+            const response = await fetch(`http://${ipAddress}:${portserver}/generateFormQ`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(formData)
+            });
+
+            if (response.ok) {
+                const responseData = await response.text();
+                console.log(responseData);
+                // Update the success message container with the response text
+                document.getElementById('successFormQContainer').innerText = responseData;
+            } else {
+                throw new Error("Network response was not ok.");
+            }
+        } catch (error) {
+            console.error("There was a problem with the fetch operation:", error);
+            // Handle errors here (e.g., show error message to the user)
+        }
+    }
+</script>
+
+<script>
+    function postBankChallen() {
+    const bankType = document.getElementById("bankType").value;
+    const workOrderNumber = document.getElementById("WONforBankChallen").value;
+    const month = document.getElementById("monthBankChallen").value;
+    const year = document.getElementById("yearBankChallen").value;
+
+    // Make sure all fields are filled
+    if (bankType && workOrderNumber && month && year) {
+        // Prepare the data to send
+        const data = {
+            month: month,
+            year: year,
+            workorderno: workOrderNumber,
+            bank: bankType
+        };
+
+        console.log(data);
+
+        // Send a POST request to the server
+        fetch(`http://${ipAddress}:${portserver}/apigenerateBankChallen`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => response.text())
+        .then(message => {
+            // Display the response message
+            document.getElementById('successBankChallenContainer').textContent = message;
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            // Display an error message if something goes wrong
+            document.getElementById('successBankChallenContainer').textContent = 'An error occurred while generating the bank challen.';
+        });
+    } else {
+        // Display an error message if any field is empty
+        document.getElementById('successBankChallenContainer').textContent = 'Please fill in all fields.';
+    }
+}
+
+</script>
+
+</body>
+
+</html>
