@@ -50,7 +50,7 @@ domReady(function () {
 =======
 		if (splits[0] == "Emp") {
 			if(splits[1]=!matchEmpID){
-				// alert("no Emp list");;
+				// alert("no Emp list");
 				// return;
 >>>>>>> parent of 138ef04 (Update script.js)
 			}
