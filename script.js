@@ -67,5 +67,3 @@ domReady(function () {
 	);
 	htmlscanner.render(onScanSuccess);
 });
-
-const url="https://script.google.com/macros/s/AKfycbwi_6l12-lguoqpNpHdBnHdNKQ5FRqKTFQQcZB8MX6LtG0kDDbquuzxM18zFNQw5Pyk/exec"
