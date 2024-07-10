@@ -1,5 +1,3 @@
-// const client = require('./app.js');
-// console.log(client.name);
 
 // script.js file
 var infoSplitA = null;
