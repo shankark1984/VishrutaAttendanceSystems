@@ -38,6 +38,7 @@ domReady(function () {
 			workOrderNo = splits[2];
 			//alert("Site");
 		}
+<<<<<<< HEAD
 
 		if (splits[0] == "Emp") {
 			if(splits[1]=!matchEmpID){
@@ -46,11 +47,21 @@ domReady(function () {
 				// alert("no Emp list");;
 				// return;
 
+=======
+		if (splits[0] == "Emp") {
+			if(splits[1]=!matchEmpID){
+				// alert("no Emp list");;
+				// return;
+>>>>>>> parent of 138ef04 (Update script.js)
 			}
 			infoSplitA = splits[1];
 			infoSplitB = splits[2];
 			//alert("Emp");
+<<<<<<< HEAD
 		 }
+=======
+		}
+>>>>>>> parent of 138ef04 (Update script.js)
 		currentdatetime = new Date().toLocaleString();
 
 		//document.getElementById("Info1").textContent = decodeText, decodeResult;
@@ -59,6 +70,10 @@ domReady(function () {
 		document.getElementById("siteID").textContent = siteID;
 		document.getElementById("workOrderNo").textContent = workOrderNo;
 		document.getElementById("datetime").textContent = currentdatetime;
+<<<<<<< HEAD
+=======
+
+>>>>>>> parent of 138ef04 (Update script.js)
 	}
 
 	let htmlscanner = new Html5QrcodeScanner(
