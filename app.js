@@ -82,7 +82,7 @@ console.log('Current IP Address:', ipAddress);
 //     console.log(`Server is listening at http://${ipAddress}:${port}`);
 // });
 app.listen(PORT, () => {
-    console.log(`Server is running at https://vishrutaattendancesystems.netlify.app:${PORT}`); //http://localhost:${PORT}`);
+    console.log(`Server is running at http://localhost:${PORT}`);
 });
 
 app.get('/', (req, res) => {
