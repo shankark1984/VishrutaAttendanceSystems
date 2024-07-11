@@ -37,22 +37,20 @@ client.connect();
 // Endpoint to insert data into PostgreSQL
 app.post('/check_emp_exists', async (req, res) => {
     const { emp_id } = req.body;
-    const emp_id1 = emp_id
     try {
-        const check_exist =`SELECT employee_id from employees_details where employee_id = $1`
-        const check_exist_result = await client.query(check_exist,[emp_id1]);
-        if(check_exist_result.rows > 1){
-            res.json("Employee Exist");
-            
-        }else{
-            res.json("Employee not Exist");
+        const check_exist = `SELECT employee_id FROM employees_details WHERE employee_id = $1`;
+        const check_exist_result = await client.query(check_exist, [emp_id]);
+        if (check_exist_result.rows.length > 0) {
+            res.json({ exists: true, employee_id: check_exist_result.rows[0].employee_id });
+        } else {
+            res.json({ exists: false });
         }
-        //res.json(result.rows[0]);
     } catch (err) {
         console.error(err);
         res.status(500).send('Server Error');
     }
 });
+
 
 
 // Endpoint to fetch data from PostgreSQL

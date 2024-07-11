@@ -17,10 +17,26 @@ function domReady(fn) {
 
 domReady(function () {
 
-    // If found you qr code
-    function onScanSuccess(decodeText, decodeResult) {
+    // Function to check if employee exists
+    async function checkEmployeeExists(empID) {
+        try {
+            const response = await fetch('/check_emp_exists', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ emp_id: empID })
+            });
+            const data = await response.json();
+            return data.exists ? data.employee_id : null;
+        } catch (error) {
+            console.error('Error checking employee:', error);
+            return null;
+        }
+    }
 
-        //alert("Attendance Successfully: \n" + decodeText, decodeResult);
+    // If found your QR code
+    async function onScanSuccess(decodeText, decodeResult) {
         var mystring = decodeText;
         var splits = mystring.split(",");
 
@@ -31,26 +47,31 @@ domReady(function () {
             }
             siteID = splits[1];
             workOrderNo = splits[2];
-            //alert("Site");
         }
 
         if (splits[0] === "Emp") {
-            // if (splits[1] !== matchEmpID) {
-            //     // alert("No matching employee ID found");
-            //     // return;
-            // }
-            infoSplitA = splits[1];
-            infoSplitB = splits[2];
-            //alert("Emp");
-        }
-            currentdatetime = new Date().toLocaleString();
+            const empID = splits[1];
+            const empName = splits[2];
 
-            document.getElementById("empID").textContent = infoSplitA;
-            document.getElementById("empName").textContent = infoSplitB;
-            document.getElementById("siteID").textContent = siteID;
-            document.getElementById("workOrderNo").textContent = workOrderNo;
-            document.getElementById("datetime").textContent = currentdatetime;
-        
+            // Check if the employee exists
+            const existingEmpID = await checkEmployeeExists(empID);
+
+            if (existingEmpID) {
+                infoSplitA = existingEmpID;
+                infoSplitB = empName;
+            } else {
+                alert("Employee does not exist");
+                return;
+            }
+        }
+
+        currentdatetime = new Date().toLocaleString();
+
+        document.getElementById("empID").textContent = infoSplitA;
+        document.getElementById("empName").textContent = infoSplitB;
+        document.getElementById("siteID").textContent = siteID;
+        document.getElementById("workOrderNo").textContent = workOrderNo;
+        document.getElementById("datetime").textContent = currentdatetime;
     }
 
     let htmlscanner = new Html5QrcodeScanner(
@@ -59,3 +80,4 @@ domReady(function () {
     );
     htmlscanner.render(onScanSuccess);
 });
+
