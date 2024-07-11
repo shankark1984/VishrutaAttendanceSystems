@@ -24,7 +24,7 @@ domReady(function () {
             const sendData = { emp_id: empID };
             console.log("Sending data:", sendData); // Log the data being sent
 
-            const response = await fetch('http://localhost:3000/check_emp_exists', {
+            const response = await fetch('http://127.0.0.1:5500//check_emp_exists', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
