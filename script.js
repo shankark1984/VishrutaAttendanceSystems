@@ -16,18 +16,15 @@ function domReady(fn) {
 }
 
 domReady(function () {
-
     // Function to check if employee exists
     async function checkEmployeeExists(empID) {
         console.log("Received empID: " + empID); // Log received empID
 
         try {
-            const sendData = {
-                emp_id: empID
-            };
+            const sendData = { emp_id: empID };
             console.log("Sending data:", sendData); // Log the data being sent
 
-            const response = await fetch('/check_emp_exists', {
+            const response = await fetch('http://localhost:3000/check_emp_exists', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -52,41 +49,41 @@ domReady(function () {
         }
     }
 
-
     // If found your QR code
     async function onScanSuccess(decodeText, decodeResult) {
         var mystring = decodeText;
         var splits = mystring.split(",");
 
         if (splits[0] === "Site") {
+            console.log(mystring);
             if (empID == null) {
                 alert("First scan employee card");
                 return;
             }
-            siteID = splits[1];
-            workOrderNo = splits[2];
+            document.getElementById("siteID").textContent = splits[1];
+            document.getElementById("workOrderNo").textContent = splits[2];
         }
 
         if (splits[0] === "Emp") {
             empID = splits[1];
+            empName = splits[2];
+
             // Check if the employee exists
             const existingEmpID = await checkEmployeeExists(empID);
 
-            if (existingEmpID) {
-                console.log("After Fx" + existingEmpID)
-                empID = existingEmpID;
-                empName = empName;
-                currentdatetime = new Date().toLocaleString();
+            console.log("After Fx " + existingEmpID);
 
+            if (existingEmpID) {
+                console.log("After Fx " + existingEmpID);
+                //empID = existingEmpID;
                 document.getElementById("empID").textContent = empID;
                 document.getElementById("empName").textContent = empName;
-                document.getElementById("siteID").textContent = siteID;
-                document.getElementById("workOrderNo").textContent = workOrderNo;
-                document.getElementById("datetime").textContent = currentdatetime;
             } else {
                 alert("EMPLOYEE NOT EXISTS");
                 return;
             }
+            currentdatetime = new Date().toLocaleString();
+            document.getElementById("datetime").textContent = currentdatetime;
         }
     }
 
@@ -96,4 +93,3 @@ domReady(function () {
     );
     htmlscanner.render(onScanSuccess);
 });
-

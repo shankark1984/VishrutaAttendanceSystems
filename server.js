@@ -43,9 +43,9 @@ app.post('/check_emp_exists', async (req, res) => {
         const check_exist =`SELECT employee_id from employees_details where employee_id = $1`
         const check_exist_result = await client.query(check_exist,[emp_id1]);
         if(check_exist_result.rows[0].length != 0){
-            res.json("Employee Exist");
+            res.json(emp_id1);
         }else{
-            res.json("Employee not Exist");
+            res.json("NA");
         }
         //res.json(check_exist_result.rows[0]);
     } catch (err) {
