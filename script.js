@@ -59,19 +59,18 @@ domReady(function () {
             if (existingEmpID) {
                 infoSplitA = existingEmpID;
                 infoSplitB = empName;
+                currentdatetime = new Date().toLocaleString();
+
+                document.getElementById("empID").textContent = infoSplitA;
+                document.getElementById("empName").textContent = infoSplitB;
+                document.getElementById("siteID").textContent = siteID;
+                document.getElementById("workOrderNo").textContent = workOrderNo;
+                document.getElementById("datetime").textContent = currentdatetime;
             } else {
-                alert("Employee does not exist");
+                alert("EMPLOYEE NOT EXISTS");
                 return;
             }
         }
-
-        currentdatetime = new Date().toLocaleString();
-
-        document.getElementById("empID").textContent = infoSplitA;
-        document.getElementById("empName").textContent = infoSplitB;
-        document.getElementById("siteID").textContent = siteID;
-        document.getElementById("workOrderNo").textContent = workOrderNo;
-        document.getElementById("datetime").textContent = currentdatetime;
     }
 
     let htmlscanner = new Html5QrcodeScanner(
