@@ -1,4 +1,5 @@
-const { Pool } = require('pg');
+//const { Pool } = require('pg');
+const { Client } = require('pg');
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -9,19 +10,33 @@ const port = 3000;
 app.use(bodyParser.json());
 app.use(cors());
 
-// PostgreSQL connection settings
-const pool = new Pool({
+// // PostgreSQL connection settings
+// const pool = new Pool({
+//     user: 'app',
+//     host: 'mildly-kind-rabbit.a1.pgedge.io',
+//     database: 'vishrutaattendancesystems',
+//     password: '70iWwCw254DfWyAH52S255qR',
+//     port: 5432,
+// });
+
+const dbConfig = {
     user: 'app',
-    host: 'mildly-kind-rabbit-pdt.a1.pgedge.io',
+    host: 'mildly-kind-rabbit.a1.pgedge.io',
     database: 'vishrutaattendancesystems',
     password: '70iWwCw254DfWyAH52S255qR',
     port: 5432,
-});
+    ssl: {
+        rejectUnauthorized: false
+    }
+};
+
+const client = new Client(dbConfig);
+client.connect();
 
 // Endpoint to fetch data from PostgreSQL
 app.get('/data', async (req, res) => {
     try {
-        const result = await pool.query('SELECT * FROM employees_details');
+        const result = await client.query('SELECT * FROM employees_details');
         res.json(result.rows);
     } catch (err) {
         console.error(err);
@@ -33,7 +48,7 @@ app.get('/data', async (req, res) => {
 app.post('/data', async (req, res) => {
     const { column1, column2 } = req.body;
     try {
-        const result = await pool.query(
+        const result = await client.query(
             'INSERT INTO your_table_name (column1, column2) VALUES ($1, $2) RETURNING *',
             [column1, column2]
         );
@@ -45,5 +60,5 @@ app.post('/data', async (req, res) => {
 });
 
 app.listen(port, () => {
-    console.log(`Server running on https://vishrutaattendancesystems.netlify.app/:${port}`);
+    console.log(`Server running on http://localhost:${port}`);
 });

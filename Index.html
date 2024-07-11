@@ -1,4 +1,3 @@
-<!-- Index.html file -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,66 +13,56 @@
     <div class="container">
         <img class="logo" src="img/Logo.png" alt="Vishruta Attendance Systems" width="50%">
         <div class="section">
-            <div id="my-qr-reader">
-            </div>
+            <div id="my-qr-reader"></div>
         </div>
         <div class="container">
-
             <table>
                 <tr>
                     <th>Emp ID</th>
-                    <th id="empID"></th>
+                    <td id="empID"></td>
                 </tr>
                 <tr>
                     <th>Emp Name</th>
-                    <th id="empName"></th>
+                    <td id="empName"></td>
                 </tr>
                 <tr>
                     <th>Site ID</th>
-                    <th id="siteID"></th>
+                    <td id="siteID"></td>
                 </tr>
                 <tr>
                     <th>Work Order No</th>
-                    <th id="workOrderNo"></th>
+                    <td id="workOrderNo"></td>
                 </tr>
                 <tr>
                     <th>Date Time</th>
-                    <th id="datetime"></th>
+                    <td id="datetime"></td>
                 </tr>
                 <tr>
                     <th>Latitude</th>
-                    <th id="srtLatitude"></th>
+                    <td id="srtLatitude"></td>
                 </tr>
                 <tr>
                     <th>Longitude</th>
-                    <th id="srtLongitude"></th>
+                    <td id="srtLongitude"></td>
                 </tr>
             </table>
         </div>
-           </div>
-<script>
-    const x = document.getElementById("demo");
+    </div>
+    <script>
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.watchPosition(showPosition);
+            } else {
+                alert("Geolocation is not supported by this browser.");
+            }
+        }
 
-function getLocation() {
-	if (navigator.geolocation) {
-		navigator.geolocation.watchPosition(showPosition);
-	} else {
-		x.innerHTML = "Geolocation is not supported by this browser.";
-	}
-}
-
-function showPosition(position) {
-	document.getElementById("srtLatitude").textContent = position.coords.latitude;
-	document.getElementById("srtLongitude").textContent = position.coords.longitude;
-
-	x.innerHTML = "Latitude: " + position.coords.latitude +
-		" Longitude: " + position.coords.longitude;
-}
-
-</script>
-
-    <script src="html5-qrcode.min.js">
+        function showPosition(position) {
+            document.getElementById("srtLatitude").textContent = position.coords.latitude;
+            document.getElementById("srtLongitude").textContent = position.coords.longitude;
+        }
     </script>
+    <script src="html5-qrcode.min.js"></script>
     <script src="script.js"></script>
     <script data-cfasync="false" src="js/form-submission-handler.js"></script>
 </body>
