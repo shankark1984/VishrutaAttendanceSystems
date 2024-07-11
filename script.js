@@ -35,10 +35,10 @@ domReady(function () {
         }
 
         if (splits[0] === "Emp") {
-            if (splits[1] !== matchEmpID) {
-                alert("No matching employee ID found");
-                return;
-            }
+            // if (splits[1] !== matchEmpID) {
+            //     // alert("No matching employee ID found");
+            //     // return;
+            // }
             infoSplitA = splits[1];
             infoSplitB = splits[2];
             //alert("Emp");
